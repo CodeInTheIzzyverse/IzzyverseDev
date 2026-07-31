@@ -1,0 +1,252 @@
+import { useState, useMemo } from 'react';
+import Badge from '@/components/UI/Badge/Badge';
+import './Home.scss';
+import useSEO from "@/hooks/useSEO";
+import Button from '@/components/UI/Button/Button';
+import { PATHS } from '@/constants/routes';
+import { Link } from 'react-router-dom';
+import CurrentProject from '@/components/UI/Card/CurrentProject';
+import ProjectSelectorCard from '@/components/UI/Card/ProjectSelectorCard';
+import ProjectProvider from '@/context/ProjectProvider';
+import { useProjects } from '@/hooks/useProjects';
+import skills from '@/data/skills';
+import { CATEGORY_LABELS, type Category, getCategoryLabel, type SupportedLanguage } from '@/types/Category';
+import useI18n from '@/hooks/useI18n';
+import { SOCIAL } from '@/constants/social';
+
+const HomeContent = () => {
+    const { language, t } = useI18n();
+    const lang: SupportedLanguage = language?.startsWith('es') ? 'es' : 'en';
+
+    useSEO({
+        title: t('pages.home.title'),
+        description: t('pages.home.description'),
+        keywords: t('pages.home.keywords'),
+    });
+
+    const {
+        projects,
+        selectedProject,
+        otherProjects,
+        selectProject,
+        nextProject,
+        prevProject,
+        filter,
+        setFilter,
+        searchTerm,
+        setSearchTerm,
+    } = useProjects();
+
+    const projectCategories = useMemo(() => {
+        const typesSet = new Set<string>();
+        projects.forEach((p) => {
+            const types = Array.isArray(p.type) ? p.type : [p.type];
+            types.forEach((t) => typesSet.add(t));
+        });
+        return ['All', ...Array.from(typesSet)];
+    }, [projects]);
+
+    const getCategoryTranslation = (category: string) => {
+        if (category === 'All') return t('common.all');
+        return t(`common.${category.toLowerCase()}`, category);
+    };
+
+    const skillCategories = useMemo<(Category | 'all')[]>(() => {
+        return ['all', ...(Object.keys(CATEGORY_LABELS) as Category[])];
+    }, []);
+
+    const [activeSkillCategory, setActiveSkillCategory] = useState<Category | 'all'>('all');
+
+    const filteredSkills = useMemo(() => {
+        if (activeSkillCategory === 'all') return skills;
+        return skills.filter((skill) => skill.category.includes(activeSkillCategory));
+    }, [activeSkillCategory]);
+
+    return (
+        <main className="homePage">
+            <section className='homePage__hero'>
+                <Badge>{t('pages.home.badge')}</Badge>
+                <h1>{t('pages.home.brandName')}</h1>
+                <h2>{t('pages.home.headline')}</h2>
+
+                <article className='homePage__hero-buttons'>
+                    <Button><Link to={PATHS.PROJECTS}>{t('pages.home.viewProjects')}</Link></Button>
+                    <Button><Link to={PATHS.CONTACT}>{t('pages.home.contact')}</Link></Button>
+                </article>
+            </section>
+
+            <section className='homePage__about'>
+                <span>{t('pages.home.missionProtocol')}</span>
+
+                <article className='homePage__about-content'>
+                    <p>{t('pages.home.about')}</p>
+                    <span>{t('pages.home.goalTag')}</span> <span>{t('pages.home.hpTag')}</span>
+                </article>
+            </section>
+
+            <section className='homePage__projects'>
+                <h2>{t('pages.home.projectSelector')}</h2>
+                <p>{t('pages.home.projectSelectorSub')}</p>
+
+                <article className='homePage__projects-header'>
+                    <div className='homePage__projects-filters'>
+                        <p><span></span> {t('pages.home.activeProjectSelector')}</p>
+                        <div>
+                            {projectCategories.map((cat) => (
+                                <Button
+                                    key={cat}
+                                    variant='filter'
+                                    onClick={() => setFilter(cat)}
+                                    className={filter.toLowerCase() === cat.toLowerCase() ? 'active' : ''}
+                                >
+                                    {getCategoryTranslation(cat)}
+                                </Button>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className='homePage__projects-search'>
+                        <input
+                            type="text"
+                            placeholder={t('pages.home.searchPlaceholder')}
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                        <Button variant='secondary' onClick={prevProject}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path fill="currentColor" d="m14 7l-5 5l5 5z" />
+                            </svg>
+                        </Button>
+                        <Button variant='secondary' onClick={nextProject}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                                <path d="M0 0h24v24H0z" fill="none" />
+                                <path fill="currentColor" d="m10 17l5-5l-5-5z" />
+                            </svg>
+                        </Button>
+                    </div>
+                </article>
+
+                <article className='homePage__projects-content'>
+                    {selectedProject && <CurrentProject {...selectedProject} />}
+
+                    <aside>
+                        <div className="homePage__project-mission">
+                            <h3>{t('pages.home.missionIntel')}</h3>
+                            <p>{selectedProject?.mission}</p>
+                        </div>
+
+                        <h3>{t('pages.home.activeDatabase')}</h3>
+                        <div className="homePage__projects-db">
+                            {otherProjects.map((project) => (
+                                <ProjectSelectorCard
+                                    key={project.slug}
+                                    {...project}
+                                    onClick={() => selectProject(project.slug)}
+                                />
+                            ))}
+                        </div>
+                    </aside>
+                </article>
+            </section>
+
+            <section className='homePage__skills'>
+                <h2>{t('pages.home.skillsTree')}</h2>
+                <p>{t('pages.home.skillsDesc')}</p>
+
+                <article>
+                    <div className='homePage__skills-header'>
+                        <div>
+                            <span>{t('pages.home.systemCapabilities')}</span>
+                            <h3>{t('pages.home.skillInventory')}</h3>
+                        </div>
+
+                        <div>
+                            {skillCategories.map((cat) => {
+                                const label = cat === 'all'
+                                    ? t('pages.home.skillAll')
+                                    : getCategoryLabel(cat, lang);
+                                return (
+                                    <Button
+                                        key={cat}
+                                        variant='filter'
+                                        onClick={() => setActiveSkillCategory(cat)}
+                                        className={activeSkillCategory === cat ? 'active' : ''}
+                                    >
+                                        {label}
+                                    </Button>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    <div className='homePage__skills-body'>
+                        {filteredSkills.map((skill) => (
+                            <div key={skill.slug} className="skill" title={skill.name}>
+                                <img src={`/skills/${skill.slug}.png`} alt={`${skill.name} logo`} />
+                                <span className="skill__name">{skill.name}</span>
+                            </div>
+                        ))}
+                    </div>
+                </article>
+            </section>
+
+            <section className='homePage__side'>
+                <article className='homePage__side-quests'>
+                    <h3>{t('pages.home.sideQuests')}</h3>
+
+                    <div className='homePage__side-grid'>
+                        <div>🎮 {t('pages.home.gaming')}</div>
+                        <div>🎬 {t('pages.home.movies')}</div>
+                        <div>📚 {t('pages.home.learning')}</div>
+                        <div>💻 {t('pages.home.coding')}</div>
+                        <div>🧩 {t('pages.home.puzzles')}</div>
+                    </div>
+                </article>
+
+                <article className='homePage__side-music'>
+                    <img src="" alt="" />
+
+                    <div>
+                        <span>Eurowave Nights</span>
+                        <h3>Late_Passenger</h3>
+                        <p>{t('pages.home.musicDesc')}</p>
+                        <Button variant='tertiary'>
+                            <a href={SOCIAL.latepassenger} target='_blank' rel='noopener noreferrer'>{t('pages.home.hearMusic')}</a>
+                        </Button>
+                    </div>
+                </article>
+
+                <article className='homePage__side-tech'>
+                    <span>{t('pages.home.techBrand')}</span>
+                    <h3>{t('pages.home.techTitle')}</h3>
+                    <p>{t('pages.home.techDesc')}</p>
+                    <Button variant='primary'>
+                        <a href={SOCIAL.izzyversetech} target='_blank' rel='noopener noreferrer'>{t('pages.home.techPortfolio')}</a>
+                    </Button>
+                </article>
+            </section>
+
+            <section className='homePage__cta'>
+                <span>{t('pages.home.ctaTag')}</span>
+                <h2>{t('pages.home.ctaTitle')}</h2>
+                <p>{t('pages.home.ctaSub')}</p>
+                <Button>
+                    <Link to={PATHS.CONTACT}>
+                        {t('pages.home.contact')}
+                    </Link>
+                </Button>
+            </section>
+        </main>
+    );
+};
+
+const Home = () => {
+    return (
+        <ProjectProvider>
+            <HomeContent />
+        </ProjectProvider>
+    );
+};
+
+export default Home;

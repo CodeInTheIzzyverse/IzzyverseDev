@@ -1,0 +1,40 @@
+@use "./vars" as *;
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0 !important;
+	margin: 0;
+	font-family: $text;
+	font-size: $text-desktop-size;
+	background-color: $background-color;
+	color: $primary-text-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $title;
+    text-transform: uppercase;
+}
+
+::placeholder {
+    text-transform: uppercase;
+}
+
+h1 {
+	font-size: $h1-mobile-size;
+
+	@media screen and (min-width: 700px) {
+		font-size: $h1-desktop-size;
+	}
+}
+
+main {
+	margin-top: 5rem;
+}

@@ -1,0 +1,147 @@
+@use "@/styles/vars" as *;
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 1rem 2rem;
+	box-sizing: border-box;
+	z-index: 1000;
+	background-color: $background-color;
+	border-bottom: 1px solid $border-color;
+	transition:
+		background-color 0.25s ease,
+		backdrop-filter 0.25s ease,
+		box-shadow 0.25s ease;
+	gap: 1rem;
+	
+	&.header--scrolled {
+		background-color: rgba($background-color, 0.72);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+	}
+	
+	a {
+		color: $primary-text-color;
+		text-decoration: none;
+		font-family: $title;
+	}
+
+	.header__brand img {
+		max-height: 2rem;
+	}
+
+	.header__actions {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		margin-left: auto;
+	}
+
+	.header__content {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: $background-color;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2rem;
+
+		opacity: 0;
+		visibility: hidden;
+		transition:
+			opacity 0.3s ease,
+			visibility 0.3s ease;
+		z-index: 999;
+
+		&--open {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.header__menu {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1.5rem;
+		}
+
+		.header__menu ul {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 1.5rem;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			.header__link {
+				color: $secondary-text-color;
+			}
+
+			.header__link--active {
+				color: $primary-color;
+				font-weight: bold;
+			}
+		}
+	}
+
+	.header__hamburger {
+		display: block;
+		background: none;
+		border: none;
+		font-size: 1.8rem;
+		cursor: pointer;
+		z-index: 1001;
+
+		svg {
+			color: $primary-text-color;
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+	}
+}
+
+@media screen and (min-width: 700px) {
+	header {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		align-items: center;
+
+		.header__actions {
+			justify-self: end;
+		}
+
+		.header__hamburger {
+			display: none;
+		}
+
+		.header__content {
+			position: static;
+			width: auto;
+			height: auto;
+			background-color: transparent;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			gap: 3rem;
+			opacity: 1;
+			visibility: visible;
+
+			.header__menu ul {
+				flex-direction: row;
+				gap: 2rem;
+			}
+		}
+	}
+}

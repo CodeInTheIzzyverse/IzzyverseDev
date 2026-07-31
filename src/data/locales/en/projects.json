@@ -1,0 +1,110 @@
+[
+	{
+		"name": "Nebula DevLab",
+		"slug": "nebuladevlab",
+		"description": "Portfolio Landing Page",
+		"mission": "Nebula DevLab is a modern, visually engaging landing page project designed as a portfolio practice. This site is not a real business, but a demonstration of web development skills and UI/UX design for personal growth and presentation.",
+		"weapons": [
+			"html",
+			"css",
+			"javascript",
+			"netlify",
+			"github",
+			"markdown"
+		],
+		"type": ["Landing Page"],
+		"live": "https://nebuladevlab.netlify.app/",
+		"github": "https://github.com/CodeInTheIzzyverse/NebulaDevLab"
+	},
+	{
+		"name": "Izzyverse Tech Portfolio",
+		"slug": "izzyverse-tech",
+		"description": "Portfolio website (not a landing page)",
+		"mission": "A professional and modern portfolio for my technical support, maintenance, and technology consulting brand. The website is designed to present services, highlight technical solutions, and capture leads through clear navigation and a polished visual experience.",
+		"weapons": [
+			"html",
+			"css",
+			"reactjs",
+			"typescript",
+			"sass",
+			"vercel",
+			"github",
+			"markdown"
+		],
+		"type": ["Portfolio"],
+		"live": "https://izzyverse-tech.vercel.app/",
+		"github": "https://github.com/CodeInTheIzzyverse/IzzyverseTech"
+	},
+	{
+		"name": "Service Booking Platform",
+		"slug": "reservas-ms",
+		"description": "Microservices-based booking platform with CI/CD automation and service orchestration.",
+		"mission": "A service booking system built around microservices where users and service providers can register. Providers create services, manage employees, and handle schedules, while regular users can request appointments with the desired employee.",
+		"weapons": [
+			"java",
+			"spring-boot",
+			"github",
+			"postman",
+			"sonarcloud",
+			"markdown",
+			"render",
+			"docker",
+			"kubernetes",
+			"swagger",
+			"azure-devops",
+			"supabase",
+			"postgresql"
+		],
+		"type": ["Backend & Microservices"],
+		"live": [
+			"https://reservas-ms-auth-service.onrender.com/api/",
+			"https://reservas-ms-catalog-service.onrender.com/api/",
+			"https://reservas-ms-schedule-service.onrender.com/api",
+			"https://reservas-ms-reservation-service.onrender.com/api/"
+		],
+		"github": [
+			"https://github.com/Isa-Bedoya-UdeA/Reservas-MS-Auth-Service",
+			"https://github.com/Isa-Bedoya-UdeA/Reservas-MS-Schedule-Service",
+			"https://github.com/Isa-Bedoya-UdeA/Reservas-MS-Catalog-Service",
+			"https://github.com/Isa-Bedoya-UdeA/Reservas-MS-Reservation-Service"
+		]
+	},
+	{
+		"name": "Lectuaria",
+		"slug": "lectuaria",
+		"description": "Social-library platform for reading promotion in Medellín.",
+		"mission": "Lectuaria is a web application that offers two differentiated interfaces depending on the user role: readers can explore the catalog, rate books, write reviews, manage reading lists, add friends, share books and lists, and view network activity. Librarians can manage their library inventory, add individual books or bulk import via CSV, and edit availability by format and library. The project is built as a SPA with React 19 and communicates with the backend exclusively through REST + HATEOAS. The backend follows a layered architecture, and some design patterns used include builder, factory method, observer, and strategy.",
+		"weapons": [
+			"typescript",
+			"reactjs",
+			"sass",
+			"vercel",
+			"markdown",
+			"github",
+			"java",
+			"spring-boot",
+			"swagger",
+			"supabase",
+			"postgresql",
+			"azure-devops",
+			"render"
+		],
+		"type": ["Fullstack App"],
+		"live": "https://lectuaria.vercel.app/",
+		"github": [
+			"https://github.com/Isa-Bedoya-UdeA/Lectuaria-fronted",
+			"https://github.com/Isa-Bedoya-UdeA/Lectuaria-backend"
+		]
+	},
+	{
+		"name": "Public Investment Analysis Dashboard",
+		"slug": "analisis-inversion-publica-colombia",
+		"description": "Interactive dashboard for exploring public investment in Colombia through visualizations, maps, and predictive statistics.",
+		"mission": "Final project for the Data Analysis (Explorer) – Basic Level course by Talento Tech. This Streamlit app allows exploring public investment in Colombia through visualizations, maps, statistics, and basic predictive models.",
+		"weapons": ["python", "markdown", "github"],
+		"type": ["Data Dashboard"],
+		"live": "",
+		"github": "https://github.com/CodeInTheIzzyverse/AnalisisInversionPublicaColombia-Dashboard"
+	}
+]
+

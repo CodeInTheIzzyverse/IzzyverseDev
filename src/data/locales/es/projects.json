@@ -1,0 +1,110 @@
+[
+	{
+		"name": "Nebula DevLab",
+		"slug": "nebuladevlab",
+		"description": "Landing page de portafolio",
+		"mission": "Nebula DevLab es un proyecto de landing page moderno y visualmente atractivo, diseñado como práctica de portafolio. Este sitio no es un negocio real, sino una demostración de habilidades de desarrollo web y diseño UI/UX para crecimiento personal y presentación.",
+		"weapons": [
+			"html",
+			"css",
+			"javascript",
+			"netlify",
+			"github",
+			"markdown"
+		],
+		"type": ["Landing Page"],
+		"live": "https://nebuladevlab.netlify.app/",
+		"github": "https://github.com/CodeInTheIzzyverse/NebulaDevLab"
+	},
+	{
+		"name": "Izzyverse Tech Portfolio",
+		"slug": "izzyverse-tech",
+		"description": "Sitio web de portafolio (no es landing page)",
+		"mission": "Portafolio profesional y moderno para mi marca de soporte técnico, mantenimiento y consultoría tecnológica. La web está diseñada para presentar servicios, destacar soluciones técnicas y facilitar la captura de leads mediante navegación clara y una experiencia visual pulcra.",
+		"weapons": [
+			"html",
+			"css",
+			"reactjs",
+			"typescript",
+			"sass",
+			"vercel",
+			"github",
+			"markdown"
+		],
+		"type": ["Portfolio"],
+		"live": "https://izzyverse-tech.vercel.app/",
+		"github": "https://github.com/CodeInTheIzzyverse/IzzyverseTech"
+	},
+	{
+		"name": "Plataforma de Reservas de Servicios",
+		"slug": "reservas-ms",
+		"description": "Plataforma de reservas basada en microservicios con automatización CI/CD y orquestación de servicios.",
+		"mission": "Sistema de reservas de servicios basado en microservicios donde se pueden registrar usuarios y prestadores de servicios. Los prestadores crean servicios, gestionan empleados y horarios, y los usuarios pueden solicitar citas con el empleado deseado.",
+		"weapons": [
+			"java",
+			"spring-boot",
+			"github",
+			"postman",
+			"sonarcloud",
+			"markdown",
+			"render",
+			"docker",
+			"kubernetes",
+			"swagger",
+			"azure-devops",
+			"supabase",
+			"postgresql"
+		],
+		"type": ["Backend & Microservices"],
+		"live": [
+			"https://reservas-ms-auth-service.onrender.com/api/",
+			"https://reservas-ms-catalog-service.onrender.com/api/",
+			"https://reservas-ms-schedule-service.onrender.com/api",
+			"https://reservas-ms-reservation-service.onrender.com/api/"
+		],
+		"github": [
+			"https://github.com/Isa-Bedoya-UdeA/Reservas-MS-Auth-Service",
+			"https://github.com/Isa-Bedoya-UdeA/Reservas-MS-Schedule-Service",
+			"https://github.com/Isa-Bedoya-UdeA/Reservas-MS-Catalog-Service",
+			"https://github.com/Isa-Bedoya-UdeA/Reservas-MS-Reservation-Service"
+		]
+	},
+	{
+		"name": "Lectuaria",
+		"slug": "lectuaria",
+		"description": "Plataforma social-bibliotecaria de fomento a la lectura en Medellín.",
+		"mission": "Lectuaria es una aplicación web que ofrece dos interfaces diferenciadas según el rol del usuario: el lector puede explorar el catálogo, calificar libros, escribir reseñas, gestionar listas de lectura, agregar amigos, compartir libros y listas, y ver la actividad de la red social; el bibliotecario puede gestionar el inventario de su biblioteca, agregar libros de forma individual o masiva mediante CSV, editar disponibilidad por formato y biblioteca. El proyecto está construido como SPA con React 19 y se comunica con el backend exclusivamente mediante REST + HATEOAS. El backend tiene arquitectura por capas y algunos patrones de diseño implementados son builder, factory method, observer y strategy.",
+		"weapons": [
+			"typescript",
+			"reactjs",
+			"sass",
+			"vercel",
+			"markdown",
+			"github",
+			"java",
+			"spring-boot",
+			"swagger",
+			"supabase",
+			"postgresql",
+			"azure-devops",
+			"render"
+		],
+		"type": ["Fullstack App"],
+		"live": "https://lectuaria.vercel.app/",
+		"github": [
+			"https://github.com/Isa-Bedoya-UdeA/Lectuaria-fronted",
+			"https://github.com/Isa-Bedoya-UdeA/Lectuaria-backend"
+		]
+	},
+	{
+		"name": "Dashboard de Análisis de Inversión Pública en Colombia",
+		"slug": "analisis-inversion-publica-colombia",
+		"description": "Dashboard interactivo para explorar la inversión pública en Colombia mediante visualizaciones, mapas y estadísticas predictivas.",
+		"mission": "Proyecto final del curso Análisis de Datos (Explorador) – Nivel Básico de Talento Tech. Esta app en Streamlit permite explorar la inversión pública en Colombia mediante visualizaciones, mapas, estadísticas y modelos predictivos básicos.",
+		"weapons": ["python", "markdown", "github"],
+		"type": ["Data Dashboard"],
+		"live": "",
+		"github": "https://github.com/CodeInTheIzzyverse/AnalisisInversionPublicaColombia-Dashboard"
+	}
+]
+

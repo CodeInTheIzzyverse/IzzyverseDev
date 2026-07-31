@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap');
+
+// FONTS
+
+$title: 'Space Grotesk', sans-serif;
+$text: 'Inter', sans-serif;
+$code: 'JetBrains Mono', monospace;
+
+// COLORS
+
+// Brand colors
+$primary-color: #71B3FF;
+$secondary-color: #7754F5;
+$tertiary-color: #2DD4BF;
+$background-color: #0B0F14;
+$surface-color: #121922;
+$cards-color: #1A2430;
+$hover-color: #223040;
+
+// Text colors
+$primary-text-color: #F5F7FA;
+$secondary-text-color: #A7B3C2;
+$disabled-text-color: #3D4568;
+
+// UI colors
+$border-color: #2B3948;
+$divider-color: #1E2833;
+
+// Status colors
+$success-color: #2DD298;
+$success-color--transparent: rgba(45, 210, 152, 0.1);
+$info-color: #71B3FF;
+$warning-color: #FFC857;
+$error-color: #FF5D73;
+
+// Gradients
+$primary-gradient: linear-gradient(135deg, #71B3FF 0%, #7754F5 100%);
+
+// SPACING
+
+$space-1: 0.5rem;
+$space-2: 1rem;
+$space-3: 1.5rem;
+$space-4: 2rem;
+$space-5: 3rem;
+$space-6: 4rem;
+$space-7: 6rem;
+$space-8: 8rem;
+
+// BORDER RADIUS
+
+$button-radius: 14px;
+$input-radius: 12px;
+$card-radius: 18px;
+$badge-radius: 999px;
+
+// CONTAINER
+
+$container-max-width: 1320px;
+
+// TEXT SIZES
+
+// Mobile
+$h1-mobile-size: 3rem;
+$h2-mobile-size: 2.5rem;
+$text-mobile-size: 1.2rem;
+$badge-mobile-size: 0.8rem;
+$button-mobile-size: 1.1rem;
+$brand-mobile-size: 1.6rem;
+
+// Desktop
+$h1-desktop-size: 4rem;
+$h2-desktop-size: 3rem;
+$text-desktop-size: 1rem;
+$badge-desktop-size: 0.9rem;
+$button-desktop-size: 1rem;
+$brand-desktop-size: 2rem;

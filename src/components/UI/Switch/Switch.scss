@@ -1,0 +1,67 @@
+@use "@/styles/vars" as *;
+
+.switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.28rem;
+    border-radius: $badge-radius;
+    background: rgba($surface-color, 0.92);
+    border: 1px solid $border-color;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.switch__pill {
+    position: absolute;
+    top: 0.28rem;
+    left: 0.28rem;
+    width: calc(50% - 0.28rem);
+    height: calc(100% - 0.56rem);
+    border-radius: $badge-radius;
+    background: $primary-gradient;
+    box-shadow: 0 8px 20px rgba($secondary-color, 0.35);
+    pointer-events: none;
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.switch--es .switch__pill {
+    transform: translateX(calc(100% + 0.1rem));
+}
+
+.switch__button {
+    position: relative;
+    z-index: 1;
+    width: 2.8rem;
+    height: 2rem;
+    border: none;
+    border-radius: $badge-radius;
+    background: transparent;
+    color: $secondary-text-color;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition:
+        transform 0.22s ease,
+        color 0.22s ease,
+        background-color 0.22s ease;
+}
+
+.switch__button:hover {
+    transform: translateY(-1px) scale(1.03);
+}
+
+.switch__button--active {
+    color: $primary-text-color;
+}
+
+.switch__button span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}

@@ -1,0 +1,47 @@
+@use '@/styles/vars' as *;
+
+.floating-social-btn {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 1200;
+    width: 3.25rem;
+    height: 3.25rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: $primary-text-color;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: floatIn 0.35s ease both;
+
+    &:hover {
+        transform: translateY(-4px) scale(1.04);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+    }
+
+    svg {
+        width: 1.35rem;
+        height: 1.35rem;
+    }
+
+    &--whatsapp {
+        background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    }
+
+    &--kofi {
+        left: 5rem;
+        background: linear-gradient(135deg, #ff5a16 0%, #202020 100%);
+    }
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
