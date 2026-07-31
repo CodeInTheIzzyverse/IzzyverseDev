@@ -1,43 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap");
 
 // FONTS
 
-$title: 'Space Grotesk', sans-serif;
-$text: 'Inter', sans-serif;
-$code: 'JetBrains Mono', monospace;
+$title: "Space Grotesk", sans-serif;
+$text: "Inter", sans-serif;
+$code: "JetBrains Mono", monospace;
 
 // COLORS
 
 // Brand colors
-$primary-color: #71B3FF;
-$secondary-color: #7754F5;
-$tertiary-color: #2DD4BF;
-$background-color: #0B0F14;
+$primary-color: #71b3ff;
+$primary-color--shadow: 0px 0px 50px 0px rgba(113, 179, 255, 0.2);
+$secondary-color: #7754f5;
+$secondary-color--shadow: 0px 0px 50px 0px rgba(119, 84, 245, 0.2);
+$tertiary-color: #2dd4bf;
+$tertiary-color--shadow: 0px 0px 50px 0px rgba(45, 212, 191, 0.2);
+$tertiary-color--transparent: rgba(45, 212, 191, 0.1);
+$background-color: #0b0f14;
 $surface-color: #121922;
-$cards-color: #1A2430;
+$cards-color: #1a2430;
 $hover-color: #223040;
+$shadow: 0px 0px 50px 10px rgba(60, 78, 100, 0.5);
 
 // Text colors
-$primary-text-color: #F5F7FA;
-$secondary-text-color: #A7B3C2;
-$disabled-text-color: #3D4568;
+$primary-text-color: #f5f7fa;
+$secondary-text-color: #a7b3c2;
+$disabled-text-color: #3d4568;
 
 // UI colors
-$border-color: #2B3948;
-$divider-color: #1E2833;
+$border-color: #2b3948;
+$divider-color: #1e2833;
 
 // Status colors
-$success-color: #2DD298;
+$success-color: #2dd298;
 $success-color--transparent: rgba(45, 210, 152, 0.1);
-$info-color: #71B3FF;
-$warning-color: #FFC857;
-$error-color: #FF5D73;
+$info-color: #71b3ff;
+$warning-color: #ffc857;
+$error-color: #ff5d73;
 
 // Gradients
-$primary-gradient: linear-gradient(135deg, #71B3FF 0%, #7754F5 100%);
+$primary-gradient: linear-gradient(135deg, #71b3ff 0%, #7754f5 100%);
 
 // SPACING
 
+$space-0: 0.25rem;
 $space-1: 0.5rem;
 $space-2: 1rem;
 $space-3: 1.5rem;
@@ -49,10 +55,11 @@ $space-8: 8rem;
 
 // BORDER RADIUS
 
-$button-radius: 14px;
-$input-radius: 12px;
-$card-radius: 18px;
-$badge-radius: 999px;
+$button-radius: 0.5rem;
+$input-radius: 0.75rem;
+$card-radius: 1rem;
+$badge-radius: 100rem;
+$weapon-radius: 0.2rem;
 
 // CONTAINER
 
@@ -62,16 +69,16 @@ $container-max-width: 1320px;
 
 // Mobile
 $h1-mobile-size: 3rem;
-$h2-mobile-size: 2.5rem;
+$h2-mobile-size: 2rem;
 $text-mobile-size: 1.2rem;
 $badge-mobile-size: 0.8rem;
-$button-mobile-size: 1.1rem;
-$brand-mobile-size: 1.6rem;
+$button-mobile-size: 1rem;
+$weapon-mobile-size: 0.7rem;
 
 // Desktop
-$h1-desktop-size: 4rem;
-$h2-desktop-size: 3rem;
+$h1-desktop-size: 6rem;
+$h2-desktop-size: 2.2rem;
 $text-desktop-size: 1rem;
 $badge-desktop-size: 0.9rem;
-$button-desktop-size: 1rem;
-$brand-desktop-size: 2rem;
+$button-desktop-size: 0.9rem;
+$weapon-desktop-size: 0.6rem;

@@ -11,6 +11,7 @@ body {
 	font-size: $text-desktop-size;
 	background-color: $background-color;
 	color: $primary-text-color;
+	overflow-x: hidden;
 }
 
 h1,
@@ -20,11 +21,32 @@ h4,
 h5,
 h6 {
 	font-family: $title;
-    text-transform: uppercase;
+	text-transform: uppercase;
+}
+
+h1 {
+	font-weight: 700;
 }
 
 ::placeholder {
-    text-transform: uppercase;
+	text-transform: uppercase;
+	font-family: $code;
+	color: $secondary-text-color;
+}
+
+input {
+	font-family: $code;
+	color: $secondary-text-color;
+	text-transform: uppercase;
+	border-radius: $input-radius;
+	border: 1px solid $border-color;
+	padding: $space-1;
+	background-color: $surface-color;
+
+	&:focus {
+		outline: none;
+		border-color: $primary-color;
+	}
 }
 
 h1 {

@@ -56,12 +56,7 @@
 			"postgresql"
 		],
 		"type": ["Backend & Microservices"],
-		"live": [
-			"https://reservas-ms-auth-service.onrender.com/api/",
-			"https://reservas-ms-catalog-service.onrender.com/api/",
-			"https://reservas-ms-schedule-service.onrender.com/api",
-			"https://reservas-ms-reservation-service.onrender.com/api/"
-		],
+		"live": "",
 		"github": [
 			"https://github.com/Isa-Bedoya-UdeA/Reservas-MS-Auth-Service",
 			"https://github.com/Isa-Bedoya-UdeA/Reservas-MS-Schedule-Service",

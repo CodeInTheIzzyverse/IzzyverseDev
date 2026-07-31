@@ -1,0 +1,27 @@
+.currentProject {
+	max-width: 50rem;
+
+	img {
+		width: 100%;
+	}
+
+	.projectSelectorCard__weapons span {
+		font-family: $code;
+		font-size: $weapon-mobile-size;
+		border-radius: $weapon-radius;
+		padding: $space-0 $space-1;
+		transition: all 0.2s ease;
+		border: none;
+		background: none;
+		cursor: pointer;
+		width: fit-content;
+		font-weight: 700;
+		color: $tertiary-color;
+		border: 1px solid $tertiary-color;
+		background-color: $tertiary-color--transparent;
+
+		a {
+			color: $secondary-text-color;
+		}
+	}
+}

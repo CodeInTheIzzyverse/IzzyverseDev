@@ -1,0 +1,96 @@
+.btn {
+	font-family: $code;
+	font-size: $button-mobile-size;
+	border-radius: $button-radius;
+	padding: $space-1 $space-2;
+	transition: all 0.2s ease;
+	border: none;
+	background: none;
+	cursor: pointer;
+	width: fit-content;
+	font-weight: 700;
+
+	a {
+		text-decoration: none;
+	}
+
+	&,
+	a {
+		display: flex;
+		align-items: center;
+		text-align: center;
+		justify-content: center;
+		gap: $space-1;
+	}
+
+	&--primary {
+		background: $primary-gradient;
+		color: $background-color;
+
+		a {
+			color: $background-color;
+		}
+	}
+
+	&--secondary {
+		background: transparent;
+		color: $primary-text-color;
+		border: 1px solid $primary-text-color;
+
+		a {
+			color: $primary-text-color;
+		}
+	}
+
+	&--tertiary {
+		background-color: $secondary-color;
+		color: $primary-text-color;
+
+		a {
+			color: $primary-text-color;
+		}
+	}
+
+	&--filter {
+		background: transparent;
+		color: $secondary-text-color;
+		border: 1px solid $secondary-text-color;
+
+		a {
+			color: $secondary-text-color;
+		}
+	}
+
+	@media screen and (min-width: 700px) {
+		font-size: $button-desktop-size;
+
+		&:hover {
+			transform: translateY(-2px);
+		}
+
+		&--primary:hover {
+			box-shadow: $primary-color--shadow;
+			filter: brightness(1.1);
+		}
+
+		&--secondary:hover {
+			background-color: $primary-text-color;
+			color: $background-color;
+
+			a {
+				color: $background-color;
+			}
+		}
+
+		&--tertiary:hover {
+			box-shadow: $secondary-color--shadow;
+			filter: brightness(1.1);
+		}
+
+		&--filter:hover {
+			color: $tertiary-color;
+			border: 1px solid $tertiary-color;
+			background-color: $tertiary-color--transparent;
+		}
+	}
+}

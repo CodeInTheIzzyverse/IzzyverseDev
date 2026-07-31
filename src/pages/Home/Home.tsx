@@ -65,14 +65,20 @@ const HomeContent = () => {
     return (
         <main className="homePage">
             <section className='homePage__hero'>
-                <Badge>{t('pages.home.badge')}</Badge>
-                <h1>{t('pages.home.brandName')}</h1>
-                <h2>{t('pages.home.headline')}</h2>
+                <div className='homePage__hero-content'>
+                    <Badge>{t('pages.home.badge')}</Badge>
+                    <h1>{t('pages.home.brandName')}</h1>
+                    <h2>{t('pages.home.headline')}</h2>
 
-                <article className='homePage__hero-buttons'>
-                    <Button><Link to={PATHS.PROJECTS}>{t('pages.home.viewProjects')}</Link></Button>
-                    <Button><Link to={PATHS.CONTACT}>{t('pages.home.contact')}</Link></Button>
-                </article>
+                    <article className='homePage__hero-buttons'>
+                        <Button><Link to={PATHS.PROJECTS}>{t('pages.home.viewProjects')}</Link></Button>
+                        <Button variant='secondary'><Link to={PATHS.CONTACT}>{t('pages.home.contact')}</Link></Button>
+                    </article>
+                </div>
+
+                <div className='homePage__hero-img'>
+                    <img src="/banner.png" alt="IzzyverseDev" />
+                </div>
             </section>
 
             <section className='homePage__about'>
@@ -80,7 +86,9 @@ const HomeContent = () => {
 
                 <article className='homePage__about-content'>
                     <p>{t('pages.home.about')}</p>
-                    <span>{t('pages.home.goalTag')}</span> <span>{t('pages.home.hpTag')}</span>
+                    <div>
+                        <span>{t('pages.home.goalTag')}</span> <span>{t('pages.home.hpTag')}</span>
+                    </div>
                 </article>
             </section>
 

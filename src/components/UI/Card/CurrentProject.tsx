@@ -1,6 +1,7 @@
 import type Project from "@/types/Project";
 import Button from "../Button/Button";
 import { resolveSkillsFromSlugs } from "@/data/skills";
+import './CurrentProject.scss';
 
 const normalizeLinks = (value: string | string[] | undefined) => {
     if (!value) return [];
@@ -8,7 +9,7 @@ const normalizeLinks = (value: string | string[] | undefined) => {
     return (Array.isArray(value) ? value : [value]).filter(Boolean);
 };
 
-const CurrentProject = (project : Project) => {
+const CurrentProject = (project: Project) => {
     const liveLinks = normalizeLinks(project.live);
     const githubLinks = normalizeLinks(project.github);
     const weapons = resolveSkillsFromSlugs(project.weapons);
