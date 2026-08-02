@@ -93,10 +93,12 @@ const HomeContent = () => {
             </section>
 
             <section className='homePage__projects'>
-                <h2>{t('pages.home.projectSelector')}</h2>
-                <p>{t('pages.home.projectSelectorSub')}</p>
-
                 <article className='homePage__projects-header'>
+                    <h2>{t('pages.home.projectSelector')}</h2>
+                    <p>{t('pages.home.projectSelectorSub')}</p>
+                </article>
+
+                <article className='homePage__projects-options'>
                     <div className='homePage__projects-filters'>
                         <p><span></span> {t('pages.home.activeProjectSelector')}</p>
                         <div>
@@ -139,12 +141,13 @@ const HomeContent = () => {
                     {selectedProject && <CurrentProject {...selectedProject} />}
 
                     <aside>
-                        <div className="homePage__project-mission">
+                        <div className="homePage__projects-mission">
                             <h3>{t('pages.home.missionIntel')}</h3>
                             <p>{selectedProject?.mission}</p>
                         </div>
 
-                        <h3>{t('pages.home.activeDatabase')}</h3>
+                        {otherProjects.length > 0 && <h3>{t('pages.home.activeDatabase')}</h3>}
+
                         <div className="homePage__projects-db">
                             {otherProjects.map((project) => (
                                 <ProjectSelectorCard

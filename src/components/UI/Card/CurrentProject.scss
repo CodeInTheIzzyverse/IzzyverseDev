@@ -1,27 +1,97 @@
 .currentProject {
 	max-width: 50rem;
+	position: relative;
+	border-radius: $card-radius;
+	overflow: hidden;
+	aspect-ratio: 4/3;
 
 	img {
 		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
-	.projectSelectorCard__weapons span {
-		font-family: $code;
-		font-size: $weapon-mobile-size;
-		border-radius: $weapon-radius;
-		padding: $space-0 $space-1;
-		transition: all 0.2s ease;
-		border: none;
-		background: none;
-		cursor: pointer;
-		width: fit-content;
-		font-weight: 700;
-		color: $tertiary-color;
-		border: 1px solid $tertiary-color;
-		background-color: $tertiary-color--transparent;
+	&::before {
+		content: "";
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 70%);
+	}
 
-		a {
+	.projectSelectorCard__body {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		gap: $space-1;
+		padding: $space-4;
+
+		h3 {
+			font-size: 1.5rem;
+			margin: 0;
+		}
+
+		p {
+			margin: 0;
 			color: $secondary-text-color;
+			font-family: $code;
+		}
+
+		@media screen and (min-width: 700px) {
+			h3 {
+				font-size: 2.3rem;
+			}
+		}
+	}
+
+	.projectSelectorCard__buttons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: $space-1;
+		margin-top: $space-1;
+
+		button {
+		}
+	}
+
+	.projectSelectorCard__weapons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: $space-1;
+
+		span {
+			font-family: $code;
+			font-size: $weapon-mobile-size;
+			border-radius: $weapon-radius;
+			padding: $space-0 $space-1;
+			transition: all 0.2s ease;
+			border: none;
+			background: none;
+			cursor: pointer;
+			width: fit-content;
+			font-weight: 700;
+			color: $tertiary-color;
+			border: 1px solid $tertiary-color;
+			background-color: $tertiary-color--transparent;
+
+			a {
+				color: $secondary-text-color;
+			}
+		}
+	}
+
+	@media screen and (min-width: 700px) {
+		aspect-ratio: 4/2;
+
+		h3 {
+			font-size: 2rem;
 		}
 	}
 }

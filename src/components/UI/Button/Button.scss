@@ -55,6 +55,7 @@
 		background: transparent;
 		color: $secondary-text-color;
 		border: 1px solid $secondary-text-color;
+		padding: $space-0 $space-1;
 
 		a {
 			color: $secondary-text-color;
@@ -88,9 +89,7 @@
 		}
 
 		&--filter:hover {
-			color: $tertiary-color;
 			border: 1px solid $tertiary-color;
-			background-color: $tertiary-color--transparent;
 		}
 	}
 }

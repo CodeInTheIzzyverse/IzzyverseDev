@@ -24,6 +24,20 @@
 }
 
 .homePage {
+	h1,
+	h2,
+	h3 {
+		font-style: italic;
+	}
+
+	h2 {
+		font-size: $h2-mobile-size;
+
+		@media screen and (min-width: 700px) {
+			font-size: $h2-desktop-size;
+		}
+	}
+
 	&__hero {
 		min-height: 80dvh;
 		width: 90%;
@@ -106,7 +120,6 @@
 			position: relative;
 			font-family: $title;
 			font-weight: 700;
-			// hacer que quede sobre el borde izquierdo del -content
 			left: 3rem;
 			bottom: -0.5rem;
 			text-transform: uppercase;
@@ -170,6 +183,160 @@
 	}
 
 	&__projects {
+		padding: $space-4 0;
+		width: 90%;
+		max-width: 100rem;
+		margin: 0 auto;
+
+		&-header {
+			text-align: center;
+
+			h2 {
+				margin-bottom: 0;
+			}
+
+			p {
+				color: $secondary-text-color;
+				font-family: $code;
+			}
+		}
+
+		&-filters {
+			p {
+				color: $tertiary-color;
+				font-family: $code;
+				display: flex;
+				align-items: center;
+				gap: $space-1;
+
+				span {
+					display: inline-block;
+					width: 0.5rem;
+					height: 0.5rem;
+					background-color: $tertiary-color;
+					border-radius: 50%;
+					animation: pulse-dot 1s infinite;
+				}
+			}
+
+			div {
+				display: flex;
+				flex-wrap: wrap;
+				gap: $space-1;
+
+				.active {
+					color: $tertiary-color;
+					border: 1px solid $tertiary-color;
+					background-color: $tertiary-color--transparent;
+				}
+			}
+		}
+
+		&-search {
+			display: flex;
+			gap: $space-1;
+			margin: $space-1 0;
+			width: 100%;
+			align-items: center;
+
+			input {
+				width: 100%;
+			}
+
+			button {
+				padding: 0;
+				width: 3rem;
+				height: 2rem;
+
+				svg {
+					width: 100%;
+					height: 100%;
+				}
+			}
+		}
+
+		&-mission {
+			background-color: $surface-color;
+			border-radius: $card-radius;
+			padding: $space-3;
+			border: 1px solid $border-color;
+			border-left: 5px solid $secondary-color;
+			margin-top: $space-1;
+
+			h3 {
+				color: $secondary-color;
+				margin: 0;
+				margin-bottom: $space-2;
+			}
+
+			p {
+				color: $secondary-text-color;
+				font-style: italic;
+				margin: 0;
+			}
+		}
+
+		aside {
+			& > h3 {
+				color: $primary-color;
+			}
+		}
+
+		&-db {
+			overflow-y: scroll;
+			overflow-x: hidden;
+			scrollbar-width: thin;
+			scrollbar-color: $tertiary-color transparent;
+			padding-right: $space-1;
+			max-height: 300px;
+			display: flex;
+			flex-direction: column;
+			gap: $space-2;
+
+			&::-webkit-scrollbar {
+				width: 0.25rem;
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background-color: $tertiary-color;
+				border-radius: 0.25rem;
+			}
+		}
+
+		.currentProject {
+			margin: 0 auto;
+		}
+
+		@media screen and (min-width: 900px) {
+			&-options {
+				display: flex;
+				align-items: end;
+				justify-content: space-between;
+				margin-bottom: $space-4;
+			}
+
+			&-search {
+				max-width: 25rem;
+				margin: 0;
+			}
+		}
+
+		@media screen and (min-width: 1200px) {
+			&-content {
+				display: grid;
+				grid-template-areas: "main main side";
+				gap: $space-5;
+
+				.currentProject {
+					grid-area: main;
+					margin: auto;
+				}
+
+				& > aside {
+					grid-area: side;
+				}
+			}
+		}
 	}
 
 	&__skills {
@@ -179,6 +346,18 @@
 	}
 
 	&__cta {
+	}
+}
+
+@keyframes pulse-dot {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
 	}
 }
 

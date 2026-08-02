@@ -25,7 +25,8 @@ h6 {
 }
 
 h1 {
-	font-weight: 700;
+	font-weight: bolder;
+	font-style: italic;
 }
 
 ::placeholder {
@@ -38,7 +39,7 @@ input {
 	font-family: $code;
 	color: $secondary-text-color;
 	text-transform: uppercase;
-	border-radius: $input-radius;
+	border-radius: $button-radius;
 	border: 1px solid $border-color;
 	padding: $space-1;
 	background-color: $surface-color;
