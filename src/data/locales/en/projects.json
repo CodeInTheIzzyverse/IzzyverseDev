@@ -68,7 +68,7 @@
 		"name": "Lectuaria",
 		"slug": "lectuaria",
 		"description": "Social-library platform for reading promotion in Medellín.",
-		"mission": "Lectuaria is a web application that offers two differentiated interfaces depending on the user role: readers can explore the catalog, rate books, write reviews, manage reading lists, add friends, share books and lists, and view network activity. Librarians can manage their library inventory, add individual books or bulk import via CSV, and edit availability by format and library. The project is built as a SPA with React 19 and communicates with the backend exclusively through REST + HATEOAS. The backend follows a layered architecture, and some design patterns used include builder, factory method, observer, and strategy.",
+		"mission": "Lectuaria is a React 19 SPA for readers and librarians. It enables book, review, reading list, and inventory management, communicating with the backend through REST + HATEOAS. The backend follows a layered architecture and implements patterns such as Builder, Factory Method, Observer, and Strategy.",
 		"weapons": [
 			"typescript",
 			"reactjs",

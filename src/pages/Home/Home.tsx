@@ -11,12 +11,43 @@ import ProjectProvider from '@/context/ProjectProvider';
 import { useProjects } from '@/hooks/useProjects';
 import skills from '@/data/skills';
 import { CATEGORY_LABELS, type Category, getCategoryLabel, type SupportedLanguage } from '@/types/Category';
+import type { Core, Course } from '@/types/Education';
 import useI18n from '@/hooks/useI18n';
 import { SOCIAL } from '@/constants/social';
+import PDFViewer from '@/components/UI/Viewer/PDFViewer';
+import AcademyCard from '@/components/UI/Card/AcademyCard';
+import CertificationCard from '@/components/UI/Card/CertificationCard';
+import EducationModal from '@/components/UI/Modal/EducationModal';
 
 const HomeContent = () => {
     const { language, t } = useI18n();
     const lang: SupportedLanguage = language?.startsWith('es') ? 'es' : 'en';
+    const [activePdfSlug, setActivePdfSlug] = useState<string | null>(null);
+    const [modalState, setModalState] = useState<{ title: string; slug: string[] } | null>(null);
+
+    const coreEducation = useMemo(() => {
+        const rawCore = t('core', { ns: 'education', returnObjects: true }) as Core[];
+        return Array.isArray(rawCore) ? rawCore : [];
+    }, [t]);
+
+    const certificationEducation = useMemo(() => {
+        const rawCourses = t('courses', { ns: 'education', returnObjects: true }) as Course[];
+        return Array.isArray(rawCourses) ? rawCourses : [];
+    }, [t]);
+
+    const openPdf = (slug: string) => {
+        setActivePdfSlug(slug);
+        setModalState(null);
+    };
+
+    const openEducationSelection = (title: string, slug: string[]) => {
+        if (slug.length === 1) {
+            openPdf(slug[0]);
+            return;
+        }
+
+        setModalState({ title, slug });
+    };
 
     useSEO({
         title: t('pages.home.title'),
@@ -162,17 +193,19 @@ const HomeContent = () => {
             </section>
 
             <section className='homePage__skills'>
-                <h2>{t('pages.home.skillsTree')}</h2>
-                <p>{t('pages.home.skillsDesc')}</p>
+                <article className='homePage__skills-header'>
+                    <h2>{t('pages.home.skillsTree')}</h2>
+                    <p>{t('pages.home.skillsDesc')}</p>
+                </article>
 
-                <article>
-                    <div className='homePage__skills-header'>
+                <article className='homePage__skills-content'>
+                    <div className='homePage__skills-options'>
                         <div>
                             <span>{t('pages.home.systemCapabilities')}</span>
                             <h3>{t('pages.home.skillInventory')}</h3>
                         </div>
 
-                        <div>
+                        <div className='homePage__skills-filters'>
                             {skillCategories.map((cat) => {
                                 const label = cat === 'all'
                                     ? t('pages.home.skillAll')
@@ -200,6 +233,57 @@ const HomeContent = () => {
                         ))}
                     </div>
                 </article>
+            </section>
+
+            <section className='homePage__education'>
+                <article className='homePage__education-header'>
+                    <h2>{t('pages.home.educationTitle')}</h2>
+                </article>
+
+                <article className='homePage__education-content'>
+                    <div className='homePage__education-core'>
+                        <span>{t('common.coreAcademy')}</span>
+
+                        <div className='homePage__education-list'>
+                            {coreEducation.map((item) => (
+                                <AcademyCard
+                                    key={`${item.institution}-${item.degree}-${item.startDate}`}
+                                    {...item}
+                                    onOpen={() => openEducationSelection(item.degree, item.slug)}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    <aside className='homePage__education-certifications'>
+                        <span>{t('common.certificationLogs')}</span>
+
+                        <div className='homePage__education-list'>
+                            {certificationEducation.map((item) => (
+                                <CertificationCard
+                                    key={`${item.institution}-${item.name}-${item.endDate}`}
+                                    {...item}
+                                    onOpen={() => openEducationSelection(item.name, item.slug)}
+                                />
+                            ))}
+                        </div>
+                    </aside>
+                </article>
+
+                {activePdfSlug && (
+                    <PDFViewer
+                        slug={activePdfSlug}
+                        onClose={() => setActivePdfSlug(null)}
+                    />
+                )}
+                {modalState && (
+                    <EducationModal
+                        title={modalState.title}
+                        slug={modalState.slug}
+                        onClose={() => setModalState(null)}
+                        onSelect={(selectedSlug) => openPdf(selectedSlug)}
+                    />
+                )}
             </section>
 
             <section className='homePage__side'>

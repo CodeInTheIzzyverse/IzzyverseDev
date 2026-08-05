@@ -24,7 +24,12 @@
 		"portfolio": "Portafolio",
 		"backend & microservices": "Backend y Microservicios",
 		"fullstack app": "Aplicación Fullstack",
-		"data dashboard": "Tablero de Datos"
+		"data dashboard": "Tablero de Datos",
+		"coreAcademy": "Academia principal",
+		"certificationLogs": "Registros de certificación",
+		"selectVersion": "Selecciona una versión",
+		"certificate": "Certificado",
+		"close": "Cerrar"
 	},
 	"pages": {
 		"home": {
@@ -51,6 +56,7 @@
 			"systemCapabilities": "Capacidades del sistema",
 			"skillInventory": "Inventario de Habilidades",
 			"skillAll": "Todas",
+			"educationTitle": "Archivo_educativo",
 			"sideQuests": "Misiones_secundarias",
 			"gaming": "Gaming",
 			"movies": "Películas/series",

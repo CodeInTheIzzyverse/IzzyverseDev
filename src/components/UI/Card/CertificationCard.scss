@@ -1,0 +1,94 @@
+.certificationCard {
+	width: 100%;
+	border: 1px solid $border-color;
+	border-radius: $card-radius;
+	background: $cards-color;
+	color: $primary-text-color;
+	padding: $space-3;
+	display: flex;
+	gap: $space-2;
+	align-items: center;
+    justify-content: space-between;
+	cursor: pointer;
+	transition:
+		transform 0.2s ease,
+		border-color 0.2s ease,
+		box-shadow 0.2s ease;
+
+	&:hover,
+	&:focus-visible {
+		border-color: $secondary-color;
+		box-shadow: $secondary-color--shadow;
+		transform: translateY(-2px);
+		outline: none;
+	}
+
+	&--disabled {
+		cursor: default;
+		opacity: 0.6;
+		border-style: dashed;
+
+		&:hover,
+		&:focus-visible {
+			transform: none;
+			box-shadow: none;
+			border-color: $border-color;
+		}
+	}
+
+	svg {
+		flex-shrink: 0;
+		color: $warning-color;
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+
+	&__info1,
+	&__info2 {
+		display: flex;
+		flex-direction: column;
+		gap: $space-1;
+	}
+
+	&__info1 {
+		flex: 1;
+        text-align: left;
+
+		h4 {
+			margin: 0;
+			color: $primary-text-color;
+			font-size: 1rem;
+		}
+
+		p {
+			margin: 0;
+			color: $secondary-text-color;
+			font-size: 0.85rem;
+		}
+	}
+
+	&__info2 {
+        text-align: right;
+
+		p,
+		span {
+			margin: 0;
+			font-family: $code;
+			font-size: 0.78rem;
+		}
+
+		p {
+			color: $secondary-text-color;
+		}
+
+		span {
+			color: $tertiary-color;
+		}
+	}
+
+	@media screen and (min-width: 700px) {
+		&__info1 h4 {
+			font-size: 1.1rem;
+		}
+	}
+}

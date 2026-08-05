@@ -1,0 +1,85 @@
+{
+    "core": [
+        {
+            "institution": "Universidad de Antioquia",
+            "degree": "Ingeniería de Sistemas",
+            "startDate": "2023-1",
+            "endDate": "Presente",
+            "level": "8th semester",
+            "slug": ["udea-systems-engineering"]
+        },
+        {
+            "institution": "CENSA",
+            "degree": "Análisis y Desarrollo de Software",
+            "startDate": "2026-1",
+            "endDate": "Presente",
+            "level": "Prácticas",
+            "slug": ["censa-software-analysis-development"]
+        }
+    ],
+    "courses": [
+        {
+            "institution": "Universidad de Antioquia",
+            "name": "Inteligencia Artificial para las Ingenierias y Ciencias",
+            "endDate": "2025-1",
+            "content": "AI, Machine Learning, Redes Neuronales",
+            "slug": ["udea-artificial-intelligence"]
+        },
+        {
+            "institution": "Udemy",
+            "name": "React JS con TypeScript y Next.js Curso Desarrollo FullStack",
+            "endDate": "2026-08",
+            "content": "ReactJS, TypeScript, NextJS",
+            "slug": ["udemy-react"]          
+        },
+        {
+            "institution": "Udemy",
+            "name": "Node.js, Express, MongoDB & More: El Bootcamp Completo",
+            "endDate": "2026-08",
+            "content": "NodeJS, Express, MongoDB, REST APIs",
+            "slug": ["udemy-node"]
+        },
+        {
+            "institution": "Udemy",
+            "name": "Universidad Angular - De Cero a Experto - Actualizado",
+            "endDate": "2026-08",
+            "content": "Angular, TypeScript, Firebase, JWT",
+            "slug": ["udemy-angular"]
+        },
+        {
+            "institution": "Udemy",
+            "name": "Universidad Java - Cero a Experto - Actualizado (+155hrs)",
+            "endDate": "2026-08",
+            "content": "Java, Spring Boot, Hibernate, JakartaEE, JPA, REST APIs, Desktop Apps, Web",
+            "slug": ["udemy-java"]
+        },
+        {
+            "institution": "Udemy",
+            "name": "Máster en PHP 8, POO, MVC, MySQL, Laravel, Codelgniter",
+            "endDate": "2026-08",
+            "content": "PHP, MySQL, Laravel, CodeIgniter",
+            "slug": ["udemy-php"]
+        },
+        {
+            "institution": "Udemy",
+            "name": "Universidad Python - Cero a Experto - Actualizado (+114hrs)",
+            "endDate": "2026-08",
+            "content": "Python, Django, Flask, FastAPI, FullStack, Flet, Pyside, SQLAlchemy, MySQL",
+            "slug": ["udemy-python"]
+        },
+        {
+            "institution": "Udemy",
+            "name": "n8n para Todos: Master en Automatización con Agentes IA n8n",
+            "endDate": "2026-08",
+            "content": "N8N, Automatización, Agentes IA",
+            "slug": ["udemy-n8n"]
+        },
+        {
+            "institution": "Ubicua",
+            "name": "Realidad Virtual y Aumentada",
+            "endDate": "2026-06",
+            "content": "AR, VR, Unity, Blender, 3D, Vuforia, C#",
+            "slug": ["ubicua-vr-ar1", "ubicua-vr-ar2-practices", "ubicua-vr-ar2-tech"]
+        }
+    ]
+}

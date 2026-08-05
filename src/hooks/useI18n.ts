@@ -4,7 +4,7 @@ import enProjects from "../data/locales/en/projects.json";
 import esProjects from "../data/locales/es/projects.json";
 
 export const useI18n = () => {
-    const { t, i18n } = useTranslation(["translation", "projects"]);
+    const { t, i18n } = useTranslation(["translation", "projects", "education"]);
 
     const currentLang = i18n.language?.startsWith("en") ? "en" : "es";
     const defaultProjects = (currentLang === "en" ? enProjects : esProjects) as Project[];
