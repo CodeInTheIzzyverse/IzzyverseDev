@@ -102,8 +102,12 @@ const HomeContent = () => {
                     <h2>{t('pages.home.headline')}</h2>
 
                     <article className='homePage__hero-buttons'>
-                        <Button><Link to={PATHS.PROJECTS}>{t('pages.home.viewProjects')}</Link></Button>
-                        <Button variant='secondary'><Link to={PATHS.CONTACT}>{t('pages.home.contact')}</Link></Button>
+                        <Link to={PATHS.PROJECTS}>
+                            <Button>{t('pages.home.viewProjects')}</Button>
+                        </Link>
+                        <Link to={PATHS.CONTACT}>
+                            <Button variant='secondary'>{t('pages.home.contact')}</Button>
+                        </Link>
                     </article>
                 </div>
 
@@ -303,18 +307,18 @@ const HomeContent = () => {
                     <span>Eurowave Nights</span>
                     <h3>Late_Passenger</h3>
                     <p>{t('pages.home.musicDesc')}</p>
-                    <Button variant='tertiary'>
-                        <a href={SOCIAL.latepassenger} target='_blank' rel='noopener noreferrer'>{t('pages.home.hearMusic')}</a>
-                    </Button>
+                    <a href={SOCIAL.latepassenger} target='_blank' rel='noopener noreferrer'>
+                        <Button variant='tertiary'>{t('pages.home.hearMusic')}</Button>
+                    </a>
                 </article>
 
                 <article className='homePage__side-tech'>
                     <span>{t('pages.home.techBrand')}</span>
                     <h3>{t('pages.home.techTitle')}</h3>
                     <p>{t('pages.home.techDesc')}</p>
-                    <Button variant='tertiary'>
-                        <a href={SOCIAL.izzyversetech} target='_blank' rel='noopener noreferrer'>{t('pages.home.techPortfolio')}</a>
-                    </Button>
+                    <a href={SOCIAL.izzyversetech} target='_blank' rel='noopener noreferrer'>
+                        <Button variant='tertiary'>{t('pages.home.techPortfolio')}</Button>
+                    </a>
                 </article>
             </section>
         </main>

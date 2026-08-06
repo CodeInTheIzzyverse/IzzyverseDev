@@ -15,10 +15,17 @@ export const ProjectProvider = ({ children }: { children: ReactNode }) => {
                 filter === "All" ||
                 types.some((t) => t.toLowerCase() === filter.toLowerCase());
 
+            const searchTerms = searchTerm
+                .toLowerCase()
+                .trim()
+                .split(/\s+/)
+                .filter(Boolean);
+
+            const projectText = [project.name, ...project.weapons].join(' ').toLowerCase();
+
             const matchesSearch =
-                !searchTerm.trim() ||
-                project.weapons.some((w) => w.toLowerCase().includes(searchTerm.toLowerCase().trim())) ||
-                project.name.toLowerCase().includes(searchTerm.toLowerCase().trim());
+                searchTerms.length === 0 ||
+                searchTerms.every((term) => projectText.includes(term));
 
             return matchesFilter && matchesSearch;
         });

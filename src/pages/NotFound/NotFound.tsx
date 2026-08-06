@@ -15,7 +15,9 @@ const NotFound = () => {
     return (
         <main className="notFoundPage">
             <h1>{t('pages.notFound.heading')}</h1>
-            <Button><a href={PATHS.HOME}>{t('pages.notFound.goHome')}</a></Button>
+            <a href={PATHS.HOME}>
+                <Button>{t('pages.notFound.goHome')}</Button>
+            </a>
         </main>
     );
 };

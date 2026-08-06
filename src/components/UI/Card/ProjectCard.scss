@@ -1,0 +1,107 @@
+.projectCard {
+	border-radius: $card-radius;
+	border: 1px solid $border-color;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	transition:
+		border-color 0.3s ease,
+		transform 0.3s ease;
+
+	&__header {
+		height: 15rem;
+		width: 100%;
+		position: relative;
+		overflow: hidden;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			opacity: 0.8;
+			transition:
+				transform 0.3s ease,
+				opacity 0.3s ease;
+		}
+	}
+
+	&__weapons {
+		position: absolute;
+		bottom: $space-2;
+		left: $space-2;
+		display: flex;
+		flex-wrap: wrap;
+		gap: $space-1;
+
+		span {
+			background-color: $surface-color;
+			border-radius: 0.2rem;
+			padding: $space-0;
+			border: 1px solid $border-color;
+			font-family: $code;
+			font-size: 0.8rem;
+		}
+	}
+
+	&__body {
+		padding: $space-2;
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+
+		h3 {
+			margin: 0 0 $space-1 0;
+			font-size: 1.6rem;
+			font-style: italic;
+		}
+
+		p {
+			margin: 0 0 $space-2 0;
+			color: $secondary-text-color;
+			font-family: $code;
+			font-style: italic;
+		}
+
+		&-buttons {
+			display: flex;
+			gap: $space-2;
+			justify-content: flex-end;
+			margin-top: auto;
+
+			.github {
+				padding: 0.5rem;
+				width: 2.5rem;
+				height: 2.5rem;
+
+				a,
+				svg {
+					width: 100%;
+					height: 100%;
+				}
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.btn--secondary:hover {
+				background-color: $primary-color;
+				border-color: $primary-color;
+			}
+		}
+	}
+
+	@media screen and (min-width: 900px) {
+		&:hover .projectCard__header img {
+			transform: scale(1.1);
+			opacity: 1;
+		}
+
+		&:hover {
+			border-color: $primary-color;
+		}
+	}
+}

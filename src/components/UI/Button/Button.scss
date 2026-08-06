@@ -10,10 +10,6 @@
 	width: fit-content;
 	font-weight: 700;
 
-	a {
-		text-decoration: none;
-	}
-
 	&,
 	a {
 		display: flex;
@@ -92,4 +88,12 @@
 			border: 1px solid $tertiary-color;
 		}
 	}
+}
+
+a {
+	text-decoration: none;
+}
+
+a > .btn {
+	text-decoration: none;
 }

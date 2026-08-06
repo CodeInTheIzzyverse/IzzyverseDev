@@ -31,16 +31,22 @@ const Projects = () => {
     }, [projects]);
 
     const filteredProjects = useMemo(() => {
+        const searchTerms = techSearch
+            .toLowerCase()
+            .trim()
+            .split(/\s+/)
+            .filter(Boolean);
+
         return projects.filter((project) => {
             const types = Array.isArray(project.type) ? project.type : [project.type];
             const matchesCategory =
                 activeFilter === 'All' ||
                 types.some((t) => t.toLowerCase() === activeFilter.toLowerCase());
 
+            const projectText = [project.name, ...project.weapons].join(' ').toLowerCase();
             const matchesTech =
-                !techSearch.trim() ||
-                project.weapons.some((w) => w.toLowerCase().includes(techSearch.toLowerCase().trim())) ||
-                project.name.toLowerCase().includes(techSearch.toLowerCase().trim());
+                searchTerms.length === 0 ||
+                searchTerms.every((term) => projectText.includes(term));
 
             return matchesCategory && matchesTech;
         });
@@ -54,17 +60,19 @@ const Projects = () => {
                     <p>{t('pages.projects.subHeader')}</p>
                 </article>
 
-                <article>
-                    {availableCategories.map((cat) => (
-                        <Button
-                            key={cat}
-                            variant="filter"
-                            onClick={() => setActiveFilter(cat)}
-                            className={activeFilter.toLowerCase() === cat.toLowerCase() ? 'active' : ''}
-                        >
-                            {getCategoryTranslation(cat)}
-                        </Button>
-                    ))}
+                <article className="projectsPage__options">
+                    <div>
+                        {availableCategories.map((cat) => (
+                            <Button
+                                key={cat}
+                                variant="filter"
+                                onClick={() => setActiveFilter(cat)}
+                                className={activeFilter.toLowerCase() === cat.toLowerCase() ? 'active' : ''}
+                            >
+                                {getCategoryTranslation(cat)}
+                            </Button>
+                        ))}
+                    </div>
                     <input
                         type="text"
                         placeholder={t('pages.projects.filterPlaceholder')}
@@ -74,15 +82,17 @@ const Projects = () => {
                 </article>
             </section>
 
-            <section className="projectsPage__grid">
-                {filteredProjects.length > 0 ? (
-                    filteredProjects.map((project) => (
-                        <ProjectCard key={project.slug} {...project} />
-                    ))
-                                ) : (
-                    <p>{t('pages.projects.noProjects')}</p>
-                )}
-            </section>
+            {filteredProjects.length > 0 ? (
+                <section className="projectsPage__grid">
+                    {
+                        filteredProjects.map((project) => (
+                            <ProjectCard key={project.slug} {...project} />
+                        ))
+                    }
+                </section>
+            ) : (
+                <p className='projectsPage__404'>{t('pages.projects.noProjects')}</p>
+            )}
         </main>
     );
 };
