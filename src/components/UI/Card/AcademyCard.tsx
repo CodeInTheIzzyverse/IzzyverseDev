@@ -6,34 +6,21 @@ interface AcademyCardProps extends Core {
     onOpen: () => void;
 }
 
+const availablePdfSlugs = new Set(
+    Object.keys(import.meta.glob('/public/education/*.pdf', { eager: true, import: 'default' }))
+        .map((filePath) => filePath.replace('/public/education/', '').replace(/\.pdf$/i, ''))
+);
+
 const AcademyCard = ({ institution, degree, level, startDate, endDate, slug, onOpen }: AcademyCardProps) => {
-    const [isClickable, setIsClickable] = useState(true);
+    const [isClickable, setIsClickable] = useState(false);
 
     useEffect(() => {
-        let isMounted = true;
+        if (!slug.length) {
+            setIsClickable(false);
+            return;
+        }
 
-        const checkAvailability = async () => {
-            const checks = await Promise.all(
-                slug.map(async (item) => {
-                    try {
-                        const response = await fetch(`/education/${item}.pdf`, { method: "HEAD" });
-                        return response.ok;
-                    } catch {
-                        return false;
-                    }
-                })
-            );
-
-            if (isMounted) {
-                setIsClickable(checks.some(Boolean));
-            }
-        };
-
-        void checkAvailability();
-
-        return () => {
-            isMounted = false;
-        };
+        setIsClickable(slug.some((item) => availablePdfSlugs.has(item)));
     }, [slug]);
 
     return (
@@ -42,6 +29,7 @@ const AcademyCard = ({ institution, degree, level, startDate, endDate, slug, onO
             className={`academyCard ${isClickable ? "" : "academyCard--disabled"}`}
             onClick={isClickable ? onOpen : undefined}
             disabled={!isClickable}
+            aria-disabled={!isClickable}
         >
             <div className="academyCard__degree">
                 <h3>{institution}</h3>

@@ -300,23 +300,19 @@ const HomeContent = () => {
                 </article>
 
                 <article className='homePage__side-music'>
-                    <img src="" alt="" />
-
-                    <div>
-                        <span>Eurowave Nights</span>
-                        <h3>Late_Passenger</h3>
-                        <p>{t('pages.home.musicDesc')}</p>
-                        <Button variant='tertiary'>
-                            <a href={SOCIAL.latepassenger} target='_blank' rel='noopener noreferrer'>{t('pages.home.hearMusic')}</a>
-                        </Button>
-                    </div>
+                    <span>Eurowave Nights</span>
+                    <h3>Late_Passenger</h3>
+                    <p>{t('pages.home.musicDesc')}</p>
+                    <Button variant='tertiary'>
+                        <a href={SOCIAL.latepassenger} target='_blank' rel='noopener noreferrer'>{t('pages.home.hearMusic')}</a>
+                    </Button>
                 </article>
 
                 <article className='homePage__side-tech'>
                     <span>{t('pages.home.techBrand')}</span>
                     <h3>{t('pages.home.techTitle')}</h3>
                     <p>{t('pages.home.techDesc')}</p>
-                    <Button variant='primary'>
+                    <Button variant='tertiary'>
                         <a href={SOCIAL.izzyversetech} target='_blank' rel='noopener noreferrer'>{t('pages.home.techPortfolio')}</a>
                     </Button>
                 </article>

@@ -488,6 +488,126 @@
 	}
 
 	&__side {
+		padding: $space-4 0;
+		width: 90%;
+		max-width: 100rem;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: $space-4;
+
+		@media screen and (min-width: 900px) {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		@media screen and (min-width: 1200px) {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+
+		h3 {
+			font-size: 1.5rem;
+		}
+
+		&-quests {
+			border-radius: $card-radius;
+			border: 1px solid $border-color;
+			padding: $space-3;
+
+			h3 {
+				margin: 0;
+				margin-bottom: $space-2;
+			}
+		}
+
+		&-grid {
+			display: flex;
+			flex-wrap: wrap;
+			gap: $space-1;
+			font-family: $code;
+			text-transform: uppercase;
+			color: $secondary-text-color;
+
+			div {
+				background-color: $surface-color;
+				border-radius: $card-radius;
+				border: 1px solid $border-color;
+				padding: $space-1;
+			}
+		}
+
+		&-music {
+			border-radius: $card-radius;
+			border: 1px solid $border-color;
+			padding: $space-3;
+			background-color: $surface-color;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+			gap: $space-2;
+
+			span {
+				font-family: $code;
+				text-transform: uppercase;
+				font-style: italic;
+				color: $secondary-color;
+			}
+
+			h3,
+			p {
+				margin: 0;
+			}
+
+			p {
+				color: $secondary-text-color;
+				font-family: $code;
+				font-style: italic;
+			}
+		}
+
+		&-tech {
+			border-radius: $card-radius;
+			border: 1px solid $border-color;
+			padding: $space-3;
+			background-image: linear-gradient(
+				135deg,
+				$tertiary-color--transparent,
+				$primary-color--transparent
+			);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+			gap: $space-2;
+
+			span {
+				font-family: $code;
+				text-transform: uppercase;
+				font-style: italic;
+				color: $tertiary-color;
+			}
+
+			h3,
+			p {
+				margin: 0;
+			}
+
+			p {
+				color: $secondary-text-color;
+				font-family: $code;
+				font-style: italic;
+			}
+
+			button {
+				background-color: $tertiary-color;
+
+				a {
+					color: $surface-color;
+				}
+			}
+		}
 	}
 
 	&__cta {

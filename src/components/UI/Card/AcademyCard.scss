@@ -15,17 +15,28 @@
 		border-color 0.2s ease,
 		box-shadow 0.2s ease;
 
-	&:hover,
-	&:focus-visible {
+	&:not(:disabled):hover,
+	&:not(:disabled):focus-visible {
 		border-color: $primary-color;
 		box-shadow: $primary-color--shadow;
 		transform: translateY(-2px);
 		outline: none;
 	}
 
+	&:disabled {
+		cursor: default;
+		pointer-events: none;
+	}
+
+	&:disabled:hover,
+	&:disabled:focus-visible {
+		transform: none;
+		box-shadow: none;
+		border-color: $border-color;
+	}
+
 	&--disabled {
 		cursor: default;
-		opacity: 0.6;
 		border-style: dashed;
 
 		&:hover,

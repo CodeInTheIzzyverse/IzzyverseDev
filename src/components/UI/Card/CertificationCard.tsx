@@ -6,34 +6,21 @@ interface CertificationCardProps extends Course {
     onOpen: () => void;
 }
 
+const availablePdfSlugs = new Set(
+    Object.keys(import.meta.glob('/public/education/*.pdf', { eager: true, import: 'default' }))
+        .map((filePath) => filePath.replace('/public/education/', '').replace(/\.pdf$/i, ''))
+);
+
 const CertificationCard = ({ institution, name, content, endDate, slug, onOpen }: CertificationCardProps) => {
-    const [isClickable, setIsClickable] = useState(true);
+    const [isClickable, setIsClickable] = useState(false);
 
     useEffect(() => {
-        let isMounted = true;
+        if (!slug.length) {
+            setIsClickable(false);
+            return;
+        }
 
-        const checkAvailability = async () => {
-            const checks = await Promise.all(
-                slug.map(async (item) => {
-                    try {
-                        const response = await fetch(`/education/${item}.pdf`, { method: "HEAD" });
-                        return response.ok;
-                    } catch {
-                        return false;
-                    }
-                })
-            );
-
-            if (isMounted) {
-                setIsClickable(checks.some(Boolean));
-            }
-        };
-
-        void checkAvailability();
-
-        return () => {
-            isMounted = false;
-        };
+        setIsClickable(slug.some((item) => availablePdfSlugs.has(item)));
     }, [slug]);
 
     return (
@@ -42,6 +29,7 @@ const CertificationCard = ({ institution, name, content, endDate, slug, onOpen }
             className={`certificationCard ${isClickable ? "" : "certificationCard--disabled"}`}
             onClick={isClickable ? onOpen : undefined}
             disabled={!isClickable}
+            aria-disabled={!isClickable}
         >
             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                 <path d="M0 0h24v24H0z" fill="none" />
