@@ -7,15 +7,17 @@ import useI18n from '@/hooks/useI18n';
 
 const Footer = () => {
     const { t } = useI18n();
+    const controlText = t('footer.controlWASD');
+    const controlParts = controlText.split(/(WASD)/i);
 
     return (
         <footer>
-            <section>
-                <article>
+            <section className="footer__main">
+                <article className="footer__main-logo">
                     <img src="/Logotype.png" alt="" />
                     <p>{t('footer.description')}</p>
 
-                    <div>
+                    <div className="footer__main-buttons">
                         <Button variant="secondary">
                             <a href={SOCIAL.github} target='_BLANK'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
@@ -108,7 +110,7 @@ const Footer = () => {
                     </div>
                 </article>
 
-                <article>
+                <article className="footer__main-menu">
                     <span>{t('footer.navigationNodes')}</span>
 
                     <nav>
@@ -130,17 +132,25 @@ const Footer = () => {
                 </article>
             </section>
 
-            <section>
-                <article>
-                    <span></span>
+            <section className="footer__game">
+                <article className="footer__game-1">
+                    <span className="footer__game-dot"></span>
                     {t('footer.systemOnline')}
                 </article>
                 <article>
-                    {t('footer.controlWASD')}
+                    {controlParts.length > 1 ? (
+                        <>
+                            {controlParts[0]}
+                            <span className="footer__game-wasd">{controlParts[1]}</span>
+                            {controlParts[2]}
+                        </>
+                    ) : (
+                        controlText
+                    )}
                 </article>
             </section>
 
-            <section>
+            <section className="footer__legal">
                 <article>
                     {t('footer.copyright')}
                 </article>

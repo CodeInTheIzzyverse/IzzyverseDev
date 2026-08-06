@@ -68,10 +68,7 @@
 			"techBrand": "Hardware & Support",
 			"techTitle": "Izzyverse_tech",
 			"techDesc": "PC & mobile maintenance, custom building, technical support and specialized courses.",
-			"techPortfolio": "Tech_portfolio",
-			"ctaTag": "Transmission Channel",
-			"ctaTitle": "Start New Quest",
-			"ctaSub": "// Ready to start a new level? Let's talk"
+			"techPortfolio": "Tech_portfolio"
 		},
 		"projects": {
 			"title": "Projects | Izzyverse Dev",

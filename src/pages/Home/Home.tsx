@@ -317,17 +317,6 @@ const HomeContent = () => {
                     </Button>
                 </article>
             </section>
-
-            <section className='homePage__cta'>
-                <span>{t('pages.home.ctaTag')}</span>
-                <h2>{t('pages.home.ctaTitle')}</h2>
-                <p>{t('pages.home.ctaSub')}</p>
-                <Button>
-                    <Link to={PATHS.CONTACT}>
-                        {t('pages.home.contact')}
-                    </Link>
-                </Button>
-            </section>
         </main>
     );
 };

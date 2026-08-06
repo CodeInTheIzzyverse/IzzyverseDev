@@ -1,0 +1,176 @@
+footer {
+	padding: $space-4;
+	width: 100%;
+	background-color: $surface-color;
+
+	.footer__main {
+		display: grid;
+		grid-template-columns: 1fr;
+		justify-items: start;
+		gap: $space-4;
+
+		@media screen and (min-width: 700px) {
+			grid-template-columns: 1fr 1fr;
+			justify-items: center;
+
+			&-menu {
+				li:hover a {
+					color: $secondary-color;
+				}
+			}
+		}
+
+		img {
+			width: 100%;
+			max-width: 200px;
+		}
+
+		p {
+			font-family: $code;
+			color: $secondary-text-color;
+			max-width: 400px;
+		}
+
+		&-buttons {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+
+			button {
+				background-color: $surface-color;
+				border: 1px solid $border-color;
+				width: 3rem;
+				height: 3rem;
+				padding: 0.5rem;
+
+				a {
+					color: $secondary-text-color;
+					transition: all 0.3s ease-in-out;
+					width: 100%;
+					height: 100%;
+				}
+
+				svg {
+					width: 100%;
+					height: 100%;
+				}
+
+				&:hover svg {
+					color: $primary-color;
+				}
+			}
+		}
+
+		&-menu {
+			span {
+				font-family: $code;
+				color: $primary-color;
+				text-transform: uppercase;
+				font-style: italic;
+			}
+
+			ul {
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				gap: $space-1;
+
+				li {
+					list-style: none;
+
+					a {
+						font-family: $code;
+						color: $secondary-text-color;
+						text-decoration: none;
+						transition: all 0.2s ease-in-out;
+					}
+				}
+			}
+		}
+	}
+
+	.footer__game {
+		background-color: $cards-color;
+		border: 1px solid $border-color;
+		border-radius: $card-radius;
+		padding: $space-3;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-family: $code;
+		text-transform: uppercase;
+		margin-top: $space-2;
+		flex-direction: column;
+		gap: $space-2;
+		color: $secondary-text-color;
+
+		@media screen and (min-width: 700px) {
+			flex-direction: row;
+		}
+
+		&-1 {
+			display: flex;
+			align-items: center;
+			gap: $space-1;
+		}
+
+		&-dot {
+			display: inline-block;
+			width: 0.5rem;
+			height: 0.5rem;
+			background-color: $tertiary-color;
+			border-radius: 50%;
+			animation: pulse-dot 1s infinite;
+		}
+
+		&-wasd {
+			background-color: $surface-color;
+			padding: $space-1 $space-2;
+			border-radius: $button-radius;
+			border: 1px solid $border-color;
+			font-style: italic;
+			letter-spacing: 0.1rem;
+			color: $primary-text-color;
+		}
+	}
+
+	.footer__legal {
+		margin-top: $space-2;
+		color: $disabled-text-color;
+		font-family: $code;
+		text-transform: uppercase;
+		font-style: italic;
+		padding-top: $space-2;
+		border-top: 1px solid $border-color;
+		display: flex;
+		flex-direction: column;
+		gap: $space-2;
+
+		a {
+			color: $disabled-text-color;
+			text-decoration: none;
+			transition: all 0.2s ease-in-out;
+		}
+
+		@media screen and (min-width: 700px) {
+			flex-direction: row;
+			justify-content: space-between;
+
+			a:hover {
+				color: $primary-color;
+			}
+		}
+	}
+}
+
+@keyframes pulse-dot {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
