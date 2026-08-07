@@ -11,7 +11,8 @@
 		"systemOnline": "System online",
 		"controlWASD": "Control WASD to explore",
 		"copyright": "© 2026 IZZYVERSE_CORE. ALL RIGHTS RESERVED.",
-		"privacyProtocols": "Privacy_protocols"
+		"privacyProtocols": "Privacy_protocols",
+		"emailCopied": "Email copied"
 	},
 	"common": {
 		"all": "All",

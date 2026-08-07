@@ -6,7 +6,8 @@ import esProjects from "../data/locales/es/projects.json";
 export const useI18n = () => {
     const { t, i18n } = useTranslation(["translation", "projects", "education"]);
 
-    const currentLang = i18n.language?.startsWith("en") ? "en" : "es";
+    const resolvedLanguage = (i18n.resolvedLanguage ?? i18n.language ?? "en").toLowerCase();
+    const currentLang = resolvedLanguage.startsWith("en") ? "en" : "es";
     const defaultProjects = (currentLang === "en" ? enProjects : esProjects) as Project[];
 
     const rawProjects = t("projects", { ns: "projects", returnObjects: true }) as Project[];
