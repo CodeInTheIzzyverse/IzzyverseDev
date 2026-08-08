@@ -1,0 +1,114 @@
+.linksPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: $space-4;
+}
+
+.linksPage__card {
+    width: min(100%, 34rem);
+    background: rgba(18, 25, 34, 0.9);
+    border: 1px solid $border-color;
+    border-radius: 1.75rem;
+    box-shadow: $shadow;
+    padding: $space-4;
+}
+
+.linksPage__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: $space-4;
+
+    img {
+        width: 7.5rem;
+        height: auto;
+        margin-bottom: $space-2;
+    }
+
+    p {
+        margin: 0;
+        color: $secondary-text-color;
+        font-family: $code;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.7rem;
+    }
+}
+
+.linksPage__actions {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+}
+
+.linksPage__action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-2;
+    width: 100%;
+    min-height: 3.5rem;
+    padding: $space-2 $space-3;
+    border-radius: 9999px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    font-family: $title;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: $primary-color--shadow;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $primary-color;
+        outline-offset: 2px;
+    }
+}
+
+.linksPage__action--primary {
+    background: $primary-gradient;
+    color: $primary-text-color;
+}
+
+.linksPage__action--secondary {
+    background: rgba(18, 25, 34, 0.9);
+    border-color: $border-color;
+    color: $primary-text-color;
+}
+
+.linksPage__action-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .linksPage {
+        padding: $space-3;
+    }
+
+    .linksPage__card {
+        padding: $space-3;
+        border-radius: 1.25rem;
+    }
+
+    .linksPage__action {
+        min-height: 3.25rem;
+        font-size: 0.95rem;
+    }
+}

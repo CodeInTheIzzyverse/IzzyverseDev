@@ -23,9 +23,9 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: $space-2;
-        justify-items: center;
-        max-width: 70rem;
-        margin: 0 auto;
+		justify-items: center;
+		max-width: 70rem;
+		margin: 0 auto;
 
 		@media screen and (min-width: 900px) {
 			grid-template-columns: 1fr 1fr;
@@ -36,12 +36,12 @@
 			border-radius: $card-radius;
 			border: 1px solid $border-color;
 			padding: $space-4;
-            display: flex;
-            flex-direction: column;
-            gap: $space-2;
-            max-width: 30rem;
-            width: 100%;
-            height: fit-content;
+			display: flex;
+			flex-direction: column;
+			gap: $space-2;
+			max-width: 30rem;
+			width: 100%;
+			height: fit-content;
 
 			h2,
 			p {
@@ -66,9 +66,9 @@
 	}
 
 	&__list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: $space-2;
+		display: flex;
+		flex-wrap: wrap;
+		gap: $space-2;
 
 		.contactPage__item button {
 			width: 3rem;
@@ -82,20 +82,30 @@
 		}
 	}
 
-    form {
-        &, .contactPage__group {
-            display: flex;
-            flex-direction: column;
-            gap: $space-2;
-        }
+	form {
+		&,
+		.contactPage__group {
+			display: flex;
+			flex-direction: column;
+			gap: $space-2;
+		}
 
-        textarea {
-            resize: vertical;
-            min-height: 5rem;
-        }
+		textarea {
+			resize: vertical;
+			min-height: 5rem;
+		}
 
-        button {
-            width: 100%;
-        }
-    }
+		button {
+			width: 100%;
+		}
+	}
+
+	&__status {
+		border: 1px solid $success-color;
+		color: $success-color;
+		padding: $space-1;
+		border-radius: $button-radius;
+		background: $success-color--transparent;
+		text-align: center;
+	}
 }

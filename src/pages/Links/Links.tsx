@@ -2,14 +2,17 @@ import { PATHS } from '@/constants/routes';
 import { SOCIAL } from '@/constants/social';
 import useSEO from '@/hooks/useSEO';
 import type { ReactElement } from 'react';
+import { useState } from 'react';
 import './Links.scss';
 import { useTranslation } from 'react-i18next';
+import ClipboardFeedback from '@/components/UI/ClipboardFeedback/ClipboardFeedback';
 
 interface LinkItem {
     label: string;
-    href: string;
+    href?: string;
     icon: ReactElement;
     variant?: 'primary' | 'secondary';
+    action?: 'link' | 'copy';
 }
 
 const linkItems: LinkItem[] = [
@@ -26,13 +29,14 @@ const linkItems: LinkItem[] = [
     },
     {
         label: 'Email',
-        href: `mailto:${SOCIAL.email}`,
+        href: SOCIAL.email,
         icon: (
             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
                 <path d="M0 0h24v24H0z" fill="none" />
                 <path fill="currentColor" d="m20 8l-8 5l-8-5V6l8 5l8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2" />
             </svg>
-        )
+        ),
+        action: 'copy'
     },
     {
         label: 'Website',
@@ -123,11 +127,22 @@ const linkItems: LinkItem[] = [
 
 const Links = () => {
     const { t } = useTranslation();
+    const [emailCopied, setEmailCopied] = useState(false);
     useSEO({
         title: t('pages.links.title'),
         description: t('pages.links.description'),
         keywords: t('pages.links.keywords'),
     });
+
+    const handleCopyEmail = async () => {
+        try {
+            await navigator.clipboard.writeText(SOCIAL.email);
+            setEmailCopied(true);
+            window.setTimeout(() => setEmailCopied(false), 1800);
+        } catch {
+            setEmailCopied(false);
+        }
+    };
 
     return (
         <main className="linksPage">
@@ -140,6 +155,20 @@ const Links = () => {
                 <div className="linksPage__actions">
                     {linkItems.map((item) => {
                         const isInternal = item.href === PATHS.HOME;
+
+                        if (item.action === 'copy') {
+                            return (
+                                <button
+                                    key={item.label}
+                                    type="button"
+                                    className={`linksPage__action linksPage__action--${item.variant ?? 'primary'}`}
+                                    onClick={handleCopyEmail}
+                                >
+                                    <span className="linksPage__action-icon">{item.icon}</span>
+                                    <span>{item.label}</span>
+                                </button>
+                            );
+                        }
 
                         return (
                             <a
@@ -156,6 +185,8 @@ const Links = () => {
                     })}
                 </div>
             </section>
+
+            <ClipboardFeedback visible={emailCopied} message={t('footer.emailCopied')} />
         </main>
     );
 };
