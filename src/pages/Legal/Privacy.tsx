@@ -1,5 +1,6 @@
 import useSEO from "@/hooks/useSEO";
 import { useTranslation } from "react-i18next";
+import './Privacy.scss';
 
 const Privacy = () => {
     const { t } = useTranslation();

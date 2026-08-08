@@ -1,0 +1,79 @@
+.privacyPage {
+	padding: $space-4;
+
+	&__header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		margin-bottom: $space-4;
+
+		h1 {
+			margin: 0;
+		}
+
+		p {
+			color: $secondary-text-color;
+			font-family: $code;
+			font-style: italic;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: $space-2;
+        max-width: 50rem;
+        margin: 0 auto;
+
+		article {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: $space-2;
+			background-color: $surface-color;
+			border: 1px solid $border-color;
+			border-radius: $card-radius;
+			text-align: center;
+			padding: $space-2;
+
+			svg {
+				width: 3.5rem;
+				height: 3.5rem;
+				background-color: $cards-color;
+				border: 1px solid $border-color;
+				border-radius: $button-radius;
+				padding: $space-1;
+				flex-shrink: 0;
+                color: $primary-color;
+			}
+
+			div {
+				h2,
+				p {
+					margin: 0;
+					font-family: $code;
+				}
+
+				h2 {
+					text-transform: uppercase;
+					margin-bottom: $space-2;
+				}
+
+				p {
+					color: $secondary-text-color;
+				}
+			}
+
+			@media screen and (min-width: 700px) {
+				flex-direction: row;
+				text-align: start;
+                padding: $space-3;
+
+				div h2 {
+					margin-bottom: $space-1;
+				}
+			}
+		}
+	}
+}
