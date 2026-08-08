@@ -5,16 +5,19 @@ import { PATHS } from "@/constants/routes";
 import { Analytics } from "@vercel/analytics/react";
 import WhatsappBtn from "../UI/Bubble/WhatsappBubble";
 import KofiBtn from "../UI/Bubble/KofiBubble";
+import Penguin from "@/components/game/Penguin";
 
 const MainLayout = () => {
     const location = useLocation();
     const showFloatingButtons = location.pathname !== PATHS.LINKS;
+    const showPenguin = location.pathname !== PATHS.LINKS;
 
     return (
         <>
             <Header />
             <Outlet />
             <Footer />
+            {showPenguin && <Penguin />}
             {showFloatingButtons && <WhatsappBtn />}
             {showFloatingButtons && <KofiBtn />}
             <Analytics />

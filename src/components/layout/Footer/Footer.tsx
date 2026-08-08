@@ -10,7 +10,7 @@ import ClipboardFeedback from '@/components/UI/ClipboardFeedback/ClipboardFeedba
 const Footer = () => {
     const { t } = useI18n();
     const controlText = t('footer.controlWASD');
-    const controlParts = controlText.split(/(WASD)/i);
+    const controlParts = controlText.split(/(WASDP)/i);
     const [emailCopied, setEmailCopied] = useState(false);
 
     const handleCopyEmail = async () => {
@@ -24,7 +24,7 @@ const Footer = () => {
     };
 
     return (
-        <footer>
+        <footer id='footer'>
             <section className="footer__main">
                 <article className="footer__main-logo">
                     <img src="/Logotype.png" alt="" />
