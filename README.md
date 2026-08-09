@@ -1,75 +1,117 @@
-# React + TypeScript + Vite
+# Izzyverse Dev Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Deploy on Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?logo=vercel&logoColor=white)](https://izzyverse-dev.vercel.app)
 
-Currently, two official plugins are available:
+Izzyverse Dev Portfolio is a modern, responsive personal portfolio website built to showcase projects, skills, and professional experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+This portfolio is a web application built with React and Vite. It features internationalization (i18n), dynamic routing, and an email contact form powered by Resend. It provides a clean and interactive user experience for visitors to explore my work and get in touch.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
 
-## Expanding the ESLint configuration
+- **Framework**: React 19
+- **Build Tool**: Vite 8
+- **Language**: TypeScript
+- **Styling**: Vanilla CSS & Sass
+- **Routing**: React Router DOM 7
+- **Internationalization**: i18next & react-i18next
+- **Email API**: Resend (Serverless function via Vercel)
+- **Analytics**: Vercel Analytics
+- **Deployment**: Vercel
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```text
+src/
+├── assets/      # Static assets like images and icons
+├── components/  # Reusable UI components
+├── constants/   # Application constants and configuration
+├── context/     # React context providers
+├── data/        # Static data and content
+├── hooks/       # Custom React hooks
+├── pages/       # Main view components for routes
+├── routes/      # Application routing configuration
+├── styles/      # Global styles and Sass files
+└── types/       # TypeScript type definitions
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Prerequisites
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Node.js (v18 or higher recommended)
+- [pnpm](https://pnpm.io/) package manager
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Installing and Using
 
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd Portfolio
+   ```
+3. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+To run the development server:
+```bash
+pnpm run dev
 ```
+
+## Build
+
+To build the project for production:
+```bash
+pnpm run build
+```
+
+## Local Preview
+
+To preview the production build locally:
+```bash
+pnpm run preview
+```
+
+## Linting
+
+To run ESLint and check for code quality issues:
+```bash
+pnpm run lint
+```
+
+## Deploy
+
+This project is configured for seamless deployment on [Vercel](https://vercel.com). Commits to the main branch trigger automatic deployments. The `api/` directory is used for serverless functions (like the contact form using Resend).
+
+## Screenshots
+
+### Desktop
+
+![Desktop Screenshot](./docs/desktop.png)
+
+### Mobile
+
+![Mobile Screenshot](./docs/mobile.png)
+
+## Architecture and Patterns
+
+- **Component-Based Architecture**: UI is broken down into reusable and modular React components.
+- **Custom Hooks**: Encapsulation of complex logic into custom React hooks (`src/hooks/`).
+- **Serverless API**: Utilization of Vercel Serverless Functions (`api/` directory) for backend tasks like sending emails via Resend.
+- **i18n**: Support for multiple languages using `i18next` with browser language detection and HTTP backend.
+- **Context API**: Global state management using React Context (`src/context/`).
+
+## Main features
+
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Multilingual Support**: Switch between different languages seamlessly.
+- **Contact Form**: Functional contact form integrated with the Resend API.
+- **Dynamic Routing**: Client-side routing with React Router.
+- **Modern Styling**: Styled with Sass for maintainable and scalable CSS.
+
+## Contribution
+
+Contributions are welcome! Please feel free to submit a Pull Request or open an issue if you have suggestions or find bugs.
