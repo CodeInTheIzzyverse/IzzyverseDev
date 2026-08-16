@@ -44,19 +44,25 @@ src/
 ## Installing and Using
 
 1. Clone the repository:
+
    ```bash
    git clone <repository-url>
    ```
+
 2. Navigate to the project directory:
+
    ```bash
    cd Portfolio
    ```
+
 3. Install dependencies:
+
    ```bash
    pnpm install
    ```
 
 To run the development server:
+
 ```bash
 pnpm run dev
 ```
@@ -64,6 +70,7 @@ pnpm run dev
 ## Build
 
 To build the project for production:
+
 ```bash
 pnpm run build
 ```
@@ -71,6 +78,7 @@ pnpm run build
 ## Local Preview
 
 To preview the production build locally:
+
 ```bash
 pnpm run preview
 ```
@@ -78,6 +86,7 @@ pnpm run preview
 ## Linting
 
 To run ESLint and check for code quality issues:
+
 ```bash
 pnpm run lint
 ```

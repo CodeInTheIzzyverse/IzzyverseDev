@@ -75,6 +75,27 @@
             "slug": ["udemy-n8n"]
         },
         {
+            "institution": "Udemy",
+            "name": "Jetpack Compose: Ultimate Course from 0",
+            "endDate": "2026-08",
+            "content": "Jetpack Compose, MVVM, Kotlin, Testing",
+            "slug": ["udemy-jetpackcompose"]
+        },
+        {
+            "institution": "Udemy",
+            "name": "Complete Kotlin development masterclass",
+            "endDate": "2026-08",
+            "content": "Kotlin, Coroutines",
+            "slug": ["udemy-kotlin"]
+        },
+        {
+            "institution": "Udemy",
+            "name": "Complete Docker course from zero to expert",
+            "endDate": "2026-08",
+            "content": "Docker, Kubernetes, Grafana, Prometheus",
+            "slug": ["udemy-docker"]
+        },
+        {
             "institution": "Ubicua",
             "name": "Virtual and Augmented Reality",
             "endDate": "2026-06",
