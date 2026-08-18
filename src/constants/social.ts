@@ -10,6 +10,6 @@ export const SOCIAL = {
 	github: "https://github.com/CodeInTheIzzyverse",
 	universityGithub: "https://github.com/Isa-Bedoya-UdeA",
 	linkedin: "https://www.linkedin.com/in/isabela-bedoya-gaviria/",
-	latepassenger: "",
+	latepassenger: "https://eurowave-nights.vercel.app/",
 	izzyversetech: "https://izzyverse-tech.vercel.app/",
 };
